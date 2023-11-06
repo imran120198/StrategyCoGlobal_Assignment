@@ -1,0 +1,9 @@
+.navbarContainer {
+  width: 100%;
+  height: 80px;
+  font-size: 40px;
+  font-weight: bolder;
+  font-style: italic;
+  margin-top: -40px;
+  text-align: center;
+}
