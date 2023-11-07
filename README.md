@@ -4,7 +4,7 @@
 Build a movie-browsing app using react.js and node.js with the help of OMDB API
 
 ## Deployment Link
-https://snazzy-duckanoo-d12d0b.netlify.app/
+https://dashing-praline-315ca7.netlify.app/
 
 ## Tech Stack
 
