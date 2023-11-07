@@ -29,7 +29,7 @@ const SingleMoviePage = () => {
           <div>Actors : {movie.Actors}</div>
           <div>Writer : {movie.Writer}</div>
           <div>Director : {movie.Director}</div>
-          <div>Rating :{movie.imdbRating}</div>
+          <div>Rating : {movie.imdbRating}</div>
         </div>
       </div>
       <div className={styles.plot}>
