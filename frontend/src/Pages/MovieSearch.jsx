@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
 import styles from "../Styles/MovieSearch.module.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const MovieSearch = () => {
   const [text, setText] = useState("");
   const [data, setData] = useState([]);
 
-  const handleSearch = () => {
-    fetch(`https://www.omdbapi.com/?apikey=13b46831&s=${text}`)
-      .then((res) => res.json())
-      .then((res) => setData(res.Search));
+  const handleSearch = (text) => {
+    axios(`https://omdb-cbn5.onrender.com/search?query=${text}`)
+      .then((res) => {
+        setData(res.data.Search);
+        console.log(res.data.Search);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
-  console.log(data)
-
   useEffect(() => {
-    handleSearch();
+    handleSearch(text);
   }, []);
 
   const handleChange = (e) => {
@@ -30,14 +34,15 @@ const MovieSearch = () => {
           placeholder="Search Movies"
           onChange={handleChange}
         />
-        <button onClick={handleSearch}>Search</button>
+        <button onClick={() => handleSearch(text)}>Search</button>
       </div>
 
       <div className={styles.movieData_container}>
         {data?.map((elem) => {
           return (
             <div key={elem.imdbID} className={styles.mapData}>
-              <img className={styles.movieData_image}
+              <img
+                className={styles.movieData_image}
                 src={elem.Poster}
                 alt={elem.Title}
               />
